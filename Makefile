@@ -16,6 +16,6 @@ docker/login:
 	$(foreach env, DOCKER_USER DOCKER_PASSWORD, \
 		$(if $(value $(env)),,$(error required variable $(env) is undefined)))
 	@echo $(DOCKER_PASSWORD) | \
-		docker login --username $(DOCKER_USER) --password-stdin ryantate13
+		docker login --username $(DOCKER_USER) --password-stdin
 
 .PHONY: all docker publish docker/login
