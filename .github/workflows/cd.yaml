@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build and Publish
-        run: make
+        run: make docker/login publish
         env:
           DOCKER_USER: ryantate13
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
