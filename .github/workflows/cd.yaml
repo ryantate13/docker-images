@@ -1,0 +1,19 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  make:
+    name: Make
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build and Publish
+        run: make
+        env:
+          DOCKER_USER: ryantate13
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
