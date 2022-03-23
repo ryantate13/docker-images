@@ -30,6 +30,6 @@ dev/shell:
 	docker run -it --rm $(IMAGE):dev zsh
 
 publish: docker
-	$(foreach tag, $(TAGS) build, docker push $(IMAGE):$(tag) $(\n))
+	$(foreach tag, $(TAGS) build dev, docker push $(IMAGE):$(tag) $(\n))
 
 .PHONY: docker shell builder builder/shell dev dev/shell publish
