@@ -3,7 +3,7 @@ REPO       := ryantate13
 IMAGE      := $(REPO)/$(PROJECT)
 TAGS       := 16 lts latest
 BUILD_TAGS := $(foreach TAG, $(TAGS), -t $(IMAGE):$(TAG))
-DOCKER_BUILD := docker build --no-cache --load
+DOCKER_BUILD := docker build --no-cache
 
 define \n
 
