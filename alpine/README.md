@@ -1,9 +1,9 @@
 # alpine
 
-Base [alpine](https://alpinelinux.org/) image for further customization. Latest tag is currently based on upstream [alpine 3.14](https://hub.docker.com/_/alpine) with the addition of the [tini init system](https://github.com/krallin/tini) as well as ca-certificates for managing trust relationships with HTTPS-secured APIs. 
+Base [alpine](https://alpinelinux.org/) image for further customization. Latest tag is currently based on upstream [alpine 3.15](https://hub.docker.com/_/alpine) with the addition of the [tini init system](https://github.com/krallin/tini) as well as ca-certificates for managing trust relationships with HTTPS-secured APIs. 
 
 ```Dockerfile
-FROM alpine:3.14
+FROM alpine:3.15
 RUN apk add tini ca-certificates
 ENTRYPOINT ["tini", "--"]
 ```
