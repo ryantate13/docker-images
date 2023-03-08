@@ -1,4 +1,4 @@
-FROM ryantate13/alpine:3.15
+FROM ryantate13/alpine:3.17
 # add node user for privilege drop
 RUN addgroup -g 1000 node && adduser -u 1000 -G node -D node
 RUN apk add --update --no-cache nodejs

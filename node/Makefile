@@ -1,7 +1,7 @@
 PROJECT    := node
 REPO       := ryantate13
 IMAGE      := $(REPO)/$(PROJECT)
-TAGS       := 16 lts latest
+TAGS       := 18 lts latest
 BUILD_TAGS := $(foreach TAG, $(TAGS), -t $(IMAGE):$(TAG))
 DOCKER_BUILD := docker build --no-cache
 
@@ -24,7 +24,7 @@ builder/shell:
 	docker run -it --rm $(IMAGE):build zsh
 
 dev: builder
-	$(DOCKER_BUILD) --build-arg BUILD_IMG=$(IMAGE):build -t $(IMAGE):dev -f dev.dockerfile .
+	$(DOCKER_BUILD) -t $(IMAGE):dev -f dev.dockerfile .
 
 dev/shell:
 	docker run -it --rm $(IMAGE):dev zsh

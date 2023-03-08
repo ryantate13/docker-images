@@ -1,5 +1,4 @@
-ARG BUILD_IMG
-FROM $BUILD_IMG
+FROM ryantate13/node:build
 
 RUN npm i -g @ryantate/js-cli fx
 
@@ -11,6 +10,11 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/inst
     && sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' /root/.zshrc
 # spacevim
 COPY init.toml /root/.SpaceVim.d/init.toml
-RUN curl -fsSL https://spacevim.org/install.sh | bash && vim '+:SPInstall' '+:SPUpdate' '+:qa!'
+RUN curl -fsSL https://spacevim.org/install.sh | bash \
+    && yes '' | vim \
+      '+let g:dein#install_max_processes = 1' \
+      '+call dein#install()' \
+      '+qall' \
+    >/dev/null 2>&1
 
 CMD ["/bin/zsh"]
